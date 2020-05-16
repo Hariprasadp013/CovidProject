@@ -1,15 +1,19 @@
 <div class="container search-style">
-
- <div class="dropdown">
- <label for="countries">Search the country for covid 19 data:</label>
-<select id="countries" >
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-<div>
-
-	<button class="btn btn-primary" (click)="searchData()">Search</button>
-
+	<h2>World Covid19 status as of today</h2>
 </div>
+<div class="container div-style">
+	<div class="row row-syle">
+  		<div class="col column column1"><span>New Confimed: {{newConfirmed}}</span></div>
+  		<div class="col column column2"><span>Total Confimed: {{totalConfirmed}}</span></div>
+	</div>
+	<div class="row row-syle">
+		<div class="col column column3"><span>New Deaths: {{newDeaths}}</span></div>
+  		<div class="col column column4"><span>Total Deaths: {{totalDeaths}}</span></div>
+	</div>
+	<div class="row row-syle">
+		<div class="col column column5"><span>New recovered: {{newRecovered}}</span></div>
+  		<div class="col column column6"><span>Total Recovered: {{totalRecovered}}</span></div>
+  	</div>
+</div>
+
+
