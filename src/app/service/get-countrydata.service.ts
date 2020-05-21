@@ -11,8 +11,10 @@ export class GetCountrydataService {
   constructor(private http:HttpClient) { }
 
   getCountryData(){
-
         return this.http.get('https://api.covid19api.com/summary');
+ 	}
 
+ 	getCountryWiseCovidData(country){
+ 		return this.http.get(`https://api.covid19api.com/total/country/${country}`);
  	}
 }
