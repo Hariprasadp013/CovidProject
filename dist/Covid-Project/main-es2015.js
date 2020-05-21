@@ -253,14 +253,16 @@ class CountryComponent {
     ngOnInit() {
     }
     searchCountry() {
+        this.confirmed = 0;
         console.log("inside js:", this.country);
         this.getCountrydataService.getCountryWiseCovidData(this.country).subscribe(response => this.extractCountryData(response));
     }
     extractCountryData(response) {
         console.log(response);
-        console.log(response[response.length - 1]);
+        //console.log(response[response.length-1]);
         //console.log(response[response.length-1]["Country"]);
-        console.log(response[response.length - 1]["Confirmed"]);
+        //console.log(response[response.length-1]["Confirmed"]);
+        this.confirmed = 0;
         this.confirmed = response[response.length - 1]["Confirmed"];
         this.active = response[response.length - 1]["Active"];
         this.deaths = response[response.length - 1]["Deaths"];
@@ -292,7 +294,7 @@ CountryComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.country);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.country);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.confirmed);
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["RequiredValidator"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"]], styles: [".div-syle[_ngcontent-%COMP%]{\n\twidth:50%;\n\theight: 20%;\n}\n.search-style[_ngcontent-%COMP%]{\n\tmargin-top: 5%;\n}\n.column[_ngcontent-%COMP%]{\n\t\n\ttext-align: center;\n\tpadding-left: 1%;\n\tpadding-right: 1%;\n\tpadding-top: 1%;\n\tpadding-bottom:1%;\n\tmargin-left: .2%;\n\tmargin-right: .2%;\n\tmargin-top: .2%;\n\tmargin-bottom: .2%;\n}\n.column1[_ngcontent-%COMP%]{\n\tbackground-color: SlateBlue;\n}\n.column2[_ngcontent-%COMP%]{\n\tbackground-color: DodgerBlue;\n}\n.column3[_ngcontent-%COMP%]{\n\tbackground-color:MediumSeaGreen;\n}\n.column4[_ngcontent-%COMP%]{\n\tbackground-color: gray;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY291bnRyeS9jb3VudHJ5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Q0FDQyxTQUFTO0NBQ1QsV0FBVztBQUNaO0FBQ0E7Q0FDQyxjQUFjO0FBQ2Y7QUFFQTs7Q0FFQyxrQkFBa0I7Q0FDbEIsZ0JBQWdCO0NBQ2hCLGlCQUFpQjtDQUNqQixlQUFlO0NBQ2YsaUJBQWlCO0NBQ2pCLGdCQUFnQjtDQUNoQixpQkFBaUI7Q0FDakIsZUFBZTtDQUNmLGtCQUFrQjtBQUNuQjtBQUVBO0NBQ0MsMkJBQTJCO0FBQzVCO0FBQ0E7Q0FDQyw0QkFBNEI7QUFDN0I7QUFDQTtDQUNDLCtCQUErQjtBQUNoQztBQUNBO0NBQ0Msc0JBQXNCO0FBQ3ZCIiwiZmlsZSI6InNyYy9hcHAvY291bnRyeS9jb3VudHJ5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZGl2LXN5bGV7XG5cdHdpZHRoOjUwJTtcblx0aGVpZ2h0OiAyMCU7XG59XG4uc2VhcmNoLXN0eWxle1xuXHRtYXJnaW4tdG9wOiA1JTtcbn1cblxuLmNvbHVtbntcblx0XG5cdHRleHQtYWxpZ246IGNlbnRlcjtcblx0cGFkZGluZy1sZWZ0OiAxJTtcblx0cGFkZGluZy1yaWdodDogMSU7XG5cdHBhZGRpbmctdG9wOiAxJTtcblx0cGFkZGluZy1ib3R0b206MSU7XG5cdG1hcmdpbi1sZWZ0OiAuMiU7XG5cdG1hcmdpbi1yaWdodDogLjIlO1xuXHRtYXJnaW4tdG9wOiAuMiU7XG5cdG1hcmdpbi1ib3R0b206IC4yJTtcbn1cblxuLmNvbHVtbjF7XG5cdGJhY2tncm91bmQtY29sb3I6IFNsYXRlQmx1ZTtcbn1cbi5jb2x1bW4ye1xuXHRiYWNrZ3JvdW5kLWNvbG9yOiBEb2RnZXJCbHVlO1xufVxuLmNvbHVtbjN7XG5cdGJhY2tncm91bmQtY29sb3I6TWVkaXVtU2VhR3JlZW47XG59XG4uY29sdW1uNHtcblx0YmFja2dyb3VuZC1jb2xvcjogZ3JheTtcbn0iXX0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CountryComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],

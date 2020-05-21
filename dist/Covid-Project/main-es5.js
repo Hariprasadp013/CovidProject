@@ -482,6 +482,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function searchCountry() {
           var _this = this;
 
+          this.confirmed = 0;
           console.log("inside js:", this.country);
           this.getCountrydataService.getCountryWiseCovidData(this.country).subscribe(function (response) {
             return _this.extractCountryData(response);
@@ -490,10 +491,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "extractCountryData",
         value: function extractCountryData(response) {
-          console.log(response);
-          console.log(response[response.length - 1]); //console.log(response[response.length-1]["Country"]);
+          console.log(response); //console.log(response[response.length-1]);
+          //console.log(response[response.length-1]["Country"]);
+          //console.log(response[response.length-1]["Confirmed"]);
 
-          console.log(response[response.length - 1]["Confirmed"]);
+          this.confirmed = 0;
           this.confirmed = response[response.length - 1]["Confirmed"];
           this.active = response[response.length - 1]["Active"];
           this.deaths = response[response.length - 1]["Deaths"];
@@ -566,7 +568,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.country);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.confirmed);
         }
       },
       directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["RequiredValidator"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"]],
