@@ -9,7 +9,6 @@ import { GetCountrydataService } from './../service/get-countrydata.service';
 export class CountryComponent implements OnInit {
 	
   country: string="";
-
   confirmed: number = 0;
   active : number = 0;
   deaths : number = 0;
@@ -22,6 +21,9 @@ export class CountryComponent implements OnInit {
   }
 
   searchCountry(){
+  	this.confirmed = 0;
+  	
+
   	console.log("inside js:",this.country);
   	this.getCountrydataService.getCountryWiseCovidData(this.country).subscribe(
   	response => this.extractCountryData(response));
@@ -30,10 +32,11 @@ export class CountryComponent implements OnInit {
   extractCountryData(response){
 
   	console.log(response);
-  	console.log(response[response.length-1]);
+  	//console.log(response[response.length-1]);
   	//console.log(response[response.length-1]["Country"]);
-  	console.log(response[response.length-1]["Confirmed"]);
-
+  	//console.log(response[response.length-1]["Confirmed"]);
+  	this.confirmed = 0;
+  	
   	this.confirmed = response[response.length-1]["Confirmed"];
   	this.active = response[response.length-1]["Active"];
   	this.deaths = response[response.length-1]["Deaths"];
